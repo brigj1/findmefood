@@ -6,9 +6,15 @@ You can fetch the code from Brigham Johnson's [GitHub repo](https://github.com/b
 
 ## Futures:
 
-Tests would be nice.
-Lookups by enumerated types would be great for Status and Facility Type.
-Massage the all-caps versions of Status values into mixed-case.
+The "Find Me Food!" interface is functional but not elegant. (It needs styling.) Using a CSS Framework such as Bootstrap or Material UI would be an improvement. Using Functional CSS via Tachyons or Tailwind could help with maintainability if the project grows.
+
+The Table tool from 'react-bootstrap/Table' was quick and easy to use. Table modules that are more elegant are available.
+
+Tests would be nice. Much of the logic could be pushed into functions in hooks that would also facilitate testing.
+
+Lookups by enumerated types would be great for Status and Facility Type. Internationalization tools like "react-i18next" are handy for stashing values for constants that can then be used in multiple places in the code. And of course using "react-i18next" would be a step towards showing the application in different languages.
+
+"react-i18next" would also help normalize Status values as mixed-case terms rather than as the uppercase values (APPROVED, REQUESTED, EXPIRED, SUSPEND) that come from the API,
 
 ## Acknowledgements:
 

@@ -3,7 +3,6 @@ import { useStyles } from "../hooks/useStyles";
 
 import FacilityLink from '../components/FacilityLink'
 import FacilityFilters from '../components/FacilityFilters'
-//import { Link } from 'react-router-dom'
 import Table from 'react-bootstrap/Table';
 //import Tippy from '@tippyjs/react';
 //import 'tippy.js/dist/tippy.css';
@@ -128,7 +127,6 @@ const Facilities = ({facilities}) => {
                   <th>Status</th>
                   <th>Food Items</th>
                   <th>Days/Hours</th>
-                  {/* <th>Blocklot</th> */}
                 </tr>
               </thead>
               <tbody>

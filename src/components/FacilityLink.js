@@ -1,5 +1,4 @@
 import React from 'react';
-//import { Link } from 'react-router-dom';
 
 import { useLookups } from "../hooks/useUtils";
 //import Tippy from '@tippyjs/react';
@@ -8,7 +7,6 @@ import { useLookups } from "../hooks/useUtils";
 export const FacilityLink = ( {facility} ) => {
 
   const { getMapUrlByLatLon } = useLookups();
-  //const { lookup_status } = useLookups();
   //const { t } = useTranslation();
 
   if (facility) {
@@ -72,27 +70,9 @@ export const FacilityLink = ( {facility} ) => {
         : facility.address
       }</td>
       
-      {/* <td>{facility.locationdescription}</td> */}
       <td>{facility.status}</td>
       <td>{facility.fooditems}</td>
       <td>{facility.dayshours}</td>
-
-      {/* <td>{facility.objectid}</td>
-      <td>{facility.applicant}</td>
-      <td>{facility.facilitytype}</td>
-      <td>{facility.address}</td>
-      <td>{facility.status}</td>
-      <td>{facility.fooditems}</td>
-      <td>{facility.dayshours}</td> */}
-      {/* <td>{facility.locationdescription}</td> */}
-
-      {/* <td>{facility.blocklot}</td> */}
-      {/* <td>
-        <Tippy content= { toHmmA({timeString: trip.hour}) } >
-          <span>{ toMmmDdYyyy({dateString: trip.day}) }</span>
-        </Tippy>
-      </td>
-      <td><Link to={`/trips/${trip.id}`}>{ trip.label }</Link></td> */}
     </tr>
   )
 }
