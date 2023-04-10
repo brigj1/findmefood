@@ -85,7 +85,11 @@ const Facilities = ({facilities}) => {
   console.log('fl_', facilitiesList);
   return (
     <div>
-      <h3>Facilities:</h3>
+      <br/>
+      <span className={`center`}>
+        <h3>Facilities:</h3>
+      </span>
+      <br/>
       <FacilityFilters
         handleFoodItemsChange    = {handleFoodItemsChange}
         handleFacilityTypeChange = {handleFacilityTypeChange}
@@ -99,6 +103,7 @@ const Facilities = ({facilities}) => {
 
         initializeFilters = {initializeFilters}
       />
+      <hr/>
       {
         facilitiesList
           ? <Table striped bordered hover style={tableShow}>
