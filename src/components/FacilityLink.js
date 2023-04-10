@@ -1,12 +1,13 @@
 import React from 'react';
 //import { Link } from 'react-router-dom';
 
-//import { useLookups } from "../hooks/useUtils";
+import { useLookups } from "../hooks/useUtils";
 //import Tippy from '@tippyjs/react';
 //import 'tippy.js/dist/tippy.css';
 //import { useTranslation } from "react-i18next";
 export const FacilityLink = ( {facility} ) => {
 
+  const { getMapUrlByLatLon } = useLookups();
   //const { lookup_status } = useLookups();
   //const { t } = useTranslation();
 
@@ -54,13 +55,23 @@ export const FacilityLink = ( {facility} ) => {
 // status : "REQUESTED"
 
 
+  const facility_address = getMapUrlByLatLon({
+        latitude: facility.latitude,
+        longitude: facility.longitude,
+  })
+
   // Facility Details
   return (
     <tr>
       <td>{facility.objectid}</td>
       <td>{facility.applicant}</td>
       <td>{facility.facilitytype}</td>
-      <td>{facility.address}</td>
+      <td>{ facility_address
+        ? <a href={facility_address}
+            target="_blank" rel="noopener noreferrer">{facility.address}</a>
+        : facility.address
+      }</td>
+      
       {/* <td>{facility.locationdescription}</td> */}
       <td>{facility.status}</td>
       <td>{facility.fooditems}</td>
