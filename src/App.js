@@ -1,5 +1,6 @@
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
+import Facilities from './components/Facilities';
 import React, { useState, useEffect } from 'react';
 
 const App = () => {
@@ -39,6 +40,7 @@ const App = () => {
 
   return (
     <div className="facilities-container">
+      <Facilities facilities={facilities}></Facilities>
       {/* {facilities.map((facility) => {
         return (
           <div className="facility-card" key={facility.id}>
