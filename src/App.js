@@ -11,7 +11,6 @@ const App = () => {
     //fetch("https://data.sfgov.org/resource/rqzj-sfat.json_limit=10")
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         setFacilities(data);
       })
       .catch((err) => {

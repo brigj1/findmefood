@@ -42,22 +42,28 @@ const Facilities = ({facilities}) => {
   const [selectedFacilityType, setSelectedFacilityType] = useState('');
   const [selectedApplicant, setSelectedApplicant]       = useState('');
   const [selectedStatus, setSelectedStatus]             = useState('');
-  
+
   console.log('facilities', facilities);
   const facilitiesList =
       facilities_exist(facilities)
       ?
         facilities
+          .map(facility => {
+            const new_facil = { ...facility,
+              fooditems:    facility.fooditems    == null ? '' : facility.fooditems,
+              facilitytype: facility.facilitytype == null ? '' : facility.facilitytype,
+              applicant:    facility.applicant    == null ? '' : facility.applicant,
+              status:       facility.status       == null ? '' : facility.status
+            }
+            return new_facil;
+          })
+
           // keep facility if filter is unset (''), else keep if matches user's input
-          .filter(facility => selectedFoodItems === ''    || facility.fooditems)
+          // TODO: refactor the 'includes' part into a function
           .filter(facility => selectedFoodItems === ''    || facility.fooditems.toLowerCase().includes(selectedFoodItems.toLowerCase()) )
-
-          .filter(facility => selectedFacilityType === '' || facility.facilitytype === Number(selectedFacilityType) ) 
-
-          .filter(facility => selectedApplicant === ''    || facility.applicant)
+          .filter(facility => selectedFacilityType === '' || facility.facilitytype.toLowerCase().includes(selectedFacilityType.toLowerCase()) )
           .filter(facility => selectedApplicant === ''    || facility.applicant.toLowerCase().includes(selectedApplicant.toLowerCase()) )
-
-          .filter(facility => selectedStatus === ''       || facility.status === Number(selectedStatus) ) 
+          .filter(facility => selectedStatus === ''       || facility.status.toLowerCase().includes(selectedStatus.toLowerCase()) )
           .sort( sortFacilities )
           .map(facility => {
             return <FacilityLink key={facility.objectid} facility = { facility } />
@@ -71,11 +77,9 @@ const Facilities = ({facilities}) => {
 
   function initializeFilters() {
     setSelectedFoodItems('');
-    //setSelectedFacilityType('');
-    setSelectedFacilityType(0);
+    setSelectedFacilityType('');
     setSelectedApplicant('');
-    //setSelectedStatus('');
-    setSelectedStatus(0);
+    setSelectedStatus('');
   }
 
   console.log('fl_', facilitiesList);
@@ -87,6 +91,12 @@ const Facilities = ({facilities}) => {
         handleFacilityTypeChange = {handleFacilityTypeChange}
         handleApplicantChange    = {handleApplicantChange}
         handleStatusChange       = {handleStatusChange}
+
+        selectedFoodItems    = { selectedFoodItems }
+        selectedFacilityType = { selectedFacilityType }
+        selectedApplicant    = { selectedApplicant }
+        selectedStatus       = { selectedStatus }
+
         initializeFilters = {initializeFilters}
       />
       {
@@ -115,6 +125,5 @@ const Facilities = ({facilities}) => {
     </div>
   )
 }
-
 
 export default Facilities;
