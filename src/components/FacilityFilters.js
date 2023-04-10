@@ -15,11 +15,10 @@ const FacilityFilters = ({
 
   initializeFilters
 }) => {
-    const { tableShow } = useStyles();
+    const { tableShow, tableData } = useStyles();
 
     return (
-      <div>
-        <br/>
+      <div className={`container`}>
         <span className={`center`}>
           <b>Search by:</b>
         </span>
@@ -27,11 +26,13 @@ const FacilityFilters = ({
         <Table striped bordered hover style={tableShow}>
           <thead>
           </thead>
-          <tbody>
+          <tbody
+          style={tableData} >
             <tr>
               <td>Food Type:</td>
               <td>
                 <input
+                  type="text"
                   name="selectedFoodItems"
                   value={selectedFoodItems}
                   onChange={handleFoodItemsChange}
@@ -43,6 +44,7 @@ const FacilityFilters = ({
               <td>Facility Type:</td>
               <td>
                 <input
+                  type="text"
                   name="selectedFacilityType"
                   value={selectedFacilityType}
                   onChange={handleFacilityTypeChange}
@@ -54,10 +56,11 @@ const FacilityFilters = ({
               <td>Applicant/Owner:</td>
               <td>
                 <input
+                  type="text"
                   name="selectedApplicant"
                   value={selectedApplicant}
                   onChange={handleApplicantChange}
-                  placeholder="Enter Owner Info"
+                  placeholder="Name of the Owner/Applicant?"
                 />
               </td>
             </tr>
@@ -65,10 +68,11 @@ const FacilityFilters = ({
               <td>Status:</td>
               <td>
                 <input
+                  type="text"
                   name="selectedStatus"
                   value={selectedStatus}
                   onChange={handleStatusChange}
-                  placeholder="App, Req, Exp, Susp?"
+                  placeholder="Approved, Requested, Expired, Suspended?"
                 />
               </td>
             </tr>

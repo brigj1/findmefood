@@ -6,8 +6,13 @@ export const useStyles = () => {
       marginRight: "auto",
     };
   
+    const tableData = {
+      textAlign: "left",
+      border: 1
+    };
   
     return {
       tableShow,
+      tableData,
     }
   }

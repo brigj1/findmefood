@@ -84,11 +84,17 @@ const Facilities = ({facilities}) => {
 
   console.log('fl_', facilitiesList);
   return (
-    <div>
+      <>
+    <div className={`container`}>
       <br/>
       <span className={`center`}>
-        <h3>Facilities:</h3>
+        <h3>Find Me Food!</h3>
+        <p>Food merchants in San Francisco are standing by, ready to fulfill your every craving!</p>
+        <p>Search for Food Trucks and Push Carts by using our "Find Me Food" search interface.</p>
       </span>
+    </div>
+      <hr/>
+    <div>
       <br/>
       <FacilityFilters
         handleFoodItemsChange    = {handleFoodItemsChange}
@@ -104,6 +110,12 @@ const Facilities = ({facilities}) => {
         initializeFilters = {initializeFilters}
       />
       <hr/>
+      <div className={`container`}>
+        <span className={`center`}>
+          <b>What's Out There:</b>
+        </span>
+        <br/>
+      </div>
       {
         facilitiesList
           ? <Table striped bordered hover style={tableShow}>
@@ -128,6 +140,7 @@ const Facilities = ({facilities}) => {
             </p>
       }
     </div>
+      </>
   )
 }
 

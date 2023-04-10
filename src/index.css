@@ -13,10 +13,16 @@ code {
     monospace;
 }
 
+.container {
+  text-align: center;
+}
+
 .center {
-  margin: 0;
-  position: absolute;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+input[type="text"] {
+  width: 280px;
 }
